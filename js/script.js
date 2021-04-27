@@ -10,7 +10,6 @@ angular.module('ctcaeApp', ['ionic', 'jett.ionic.filter.bar', 'ui.router', 'ng-s
         });
         $scope.shareData.elements = filteredItems;
         $scope.shareData.elements2 = filteredItems2;
-
         var el1 = document.getElementById('list1');
         var el2 = document.getElementById('list2');
         var removeItem;
@@ -85,7 +84,7 @@ angular.module('ctcaeApp', ['ionic', 'jett.ionic.filter.bar', 'ui.router', 'ng-s
         }
 
         $scope.shareData.element = function (ele) {
-            return ele.items.some(item => {
+            return ele.items.some(function(item) {
                 return (item.selected || item.selected === 0)
             });
         }
@@ -664,17 +663,17 @@ angular.module('ctcaeApp', ['ionic', 'jett.ionic.filter.bar', 'ui.router', 'ng-s
                 }).sort();
 
                 var divAdded = [];
-                $scope.shareData.itemList.sort((a, b) => {
+                $scope.shareData.itemList.sort(function(a, b) {
                     return a["B"].localeCompare(b["B"]) || a["A"].localeCompare(b["A"]);
                 });
 
-                for (item of $scope.shareData.groupList) {
+                $scope.shareData.groupList.forEach(function(item) {
                     var pos = $scope.shareData.itemList.map(function (element) {
                         return element["B"];
                     }).indexOf(item);
                     divAdded.unshift(pos);
-                }
-                for (i in divAdded) {
+                });
+                for (var i in divAdded) {
                     $scope.shareData.itemList.splice(divAdded[i], 0, {
                         A: $scope.shareData.itemList[divAdded[i]]["B"],
                         B: false,
@@ -758,7 +757,7 @@ angular.module('ctcaeApp', ['ionic', 'jett.ionic.filter.bar', 'ui.router', 'ng-s
 
         $scope.anscheck = function (ele) {
             text = String(ele.id);
-            ele.items.forEach(item => {
+            ele.items.forEach(function(item) {
                 text = text + "q" + item.q + "s" + (item.selected === undefined ? "x" : item.selected);
             })
 

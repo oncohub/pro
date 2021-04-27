@@ -1,6 +1,9 @@
 var proctcae = [{
         id: 1,
         term: "口の中の乾き",
+        term_en: "Dry mouth",
+        ctcae_en: "Dry mouth",
+        meddra: 10013781,
         items: [{
             q: 1,
             ask: "この7日の間で、口の中の乾きは一番ひどい時でどの程度でしたか?",
@@ -11,6 +14,9 @@ var proctcae = [{
     }, {
         id: 2,
         term: "食べ物が飲み込みにくい",
+        term_en: "Difficulty swallowing",
+        ctcae_en: "Dysphagia",
+        meddra: 10013950,
         items: [{
             q: 1,
             ask: "この7日の間で、食べ物が飲み込みにくいことは一番ひどい時でどの程度でしたか?",
@@ -20,6 +26,9 @@ var proctcae = [{
     }, {
         id: 3,
         term: "口の中や喉の痛み",
+        term_en: "Mouth/throat sores",
+        ctcae_en: "Mucositis oral",
+        meddra: 10028130,
         items: [{
             q: 1,
             ask: "この7日の間で、口の中や喉の痛みは一番ひどい時でどの程度でしたか?",
@@ -34,6 +43,9 @@ var proctcae = [{
     }, {
         id: 4,
         term: "口の端のひび割れ",
+        term_en: "Cracking at the corners of the mouth (cheilosis/cheilitis)",
+        ctcae_en: "Cheilitis",
+        meddra: 10008417,
         items: [{
             q: 1,
             ask: "この7日の間で、口の端のひび割れは一番ひどい時でどの程度でしたか?",
@@ -43,6 +55,9 @@ var proctcae = [{
     }, {
         id: 5,
         term: "声の変化",
+        term_en: "Voice quality changes",
+        ctcae_en: "Voice alteration",
+        meddra: 10047681,
         items: [{
             q: 1,
             ask: "この7日の間で、声の変化がありましたか?",
@@ -52,6 +67,9 @@ var proctcae = [{
     }, {
         id: 6,
         term: "かすれ声",
+        term_en: "Hoarseness",
+        ctcae_en: "Hoarseness",
+        meddra: 10020201,
         items: [{
             q: 1,
             ask: "この7日の間で、かすれ声は一番ひどい時でどの程度でしたか?",
@@ -61,6 +79,9 @@ var proctcae = [{
     }, {
         id: 7,
         term: "食べ物や飲み物の味がわからない(または、味が変わった)",
+        term_en: "Taste changes",
+        ctcae_en: "Dysgeusia",
+        meddra: 10013911,
         items: [{
             q: 1,
             ask: "この7日の間で、食べ物や飲み物の味がわからない(または、味が変わった)ということは一 番ひどい時でどの程度でしたか?",
@@ -70,6 +91,9 @@ var proctcae = [{
     }, {
         id: 8,
         term: "食欲不振",
+        term_en: "Decreased appetite",
+        ctcae_en: "Anorexia",
+        meddra: 10002646,
         items: [{
             q: 1,
             ask: "この7日の間で、食欲不振は一番ひどい時でどの程度でしたか?",
@@ -85,6 +109,9 @@ var proctcae = [{
     {
         id: 9,
         term: "吐き気",
+        term_en: "Nausea",
+        ctcae_en: "Nausea",
+        meddra: 10028813,
         items: [{
             q: 1,
             ask: "この7日の間で、吐き気はありましたか?",
@@ -100,6 +127,9 @@ var proctcae = [{
     {
         id: 10,
         term: "嘔吐",
+        term_en: "Vomiting",
+        ctcae_en: "Vomiting",
+        meddra: 10047700,
         items: [{
             q: 1,
             ask: "この7日の間に、嘔吐はありましたか?",
@@ -114,6 +144,9 @@ var proctcae = [{
     }, {
         id: 11,
         term: "胸焼け",
+        term_en: "Heartburn",
+        ctcae_en: "Dyspepsia",
+        meddra: 10013946,
         items: [{
             q: 1,
             ask: "この7日の間で、胸焼けがしましたか?",
@@ -128,6 +161,9 @@ var proctcae = [{
     }, {
         id: 12,
         term: "おなら(またはお腹にガスが溜まっている感じ)",
+        term_en: "Gas",
+        ctcae_en: "Flatulence",
+        meddra: 10016766,
         items: [{
             q: 1,
             ask: "この7日の間で、おならがでる(またはお腹にガスが溜まっている感じがする)回数が増えましたか?",
@@ -137,6 +173,9 @@ var proctcae = [{
     }, {
         id: 13,
         term: "腹部膨満感(お腹がはった感じ)",
+        term_en: "Bloating",
+        ctcae_en: "Bloating",
+        meddra: 10005265,
         items: [{
             q: 1,
             ask: "この7日の間に、腹部膨満感(お腹がはった感じ)はありましたか?",
@@ -151,6 +190,9 @@ var proctcae = [{
     }, {
         id: 14,
         term: "しゃっくり",
+        term_en: "Hiccups",
+        ctcae_en: "Hiccups",
+        meddra: 10020039,
         items: [{
             q: 1,
             ask: "この7日の間で、しゃっくりがでましたか?",
@@ -165,6 +207,9 @@ var proctcae = [{
     }, {
         id: 15,
         term: "便秘",
+        term_en: "Constipation",
+        ctcae_en: "Constipation",
+        meddra: 10010774,
         items: [{
             q: 1,
             ask: "この7日の間で、便秘は一番ひどい時でどの程度でしたか?",
@@ -174,6 +219,9 @@ var proctcae = [{
     }, {
         id: 16,
         term: "下痢をすること(ゆるい便や水っぽい便)",
+        term_en: "Diarrhea",
+        ctcae_en: "Diarrhea",
+        meddra: 10012727,
         items: [{
             q: 1,
             ask: "この7日の間で、下痢をすること(ゆるい便や水っぽい便)がありましたか?",
@@ -183,6 +231,9 @@ var proctcae = [{
     }, {
         id: 17,
         term: "腹痛",
+        term_en: "Abdominal pain",
+        ctcae_en: "Abdominal pain",
+        meddra: 10000081,
         items: [{
             q: 1,
             ask: "この7日の間で、腹痛はありましたか?",
@@ -202,6 +253,9 @@ var proctcae = [{
     }, {
         id: 18,
         term: "便失禁(便通をコントロールできず、もらしてしまう)",
+        term_en: "Fecal incontinence",
+        ctcae_en: "Fecal incontinence",
+        meddra: 10016296,
         items: [{
             q: 1,
             ask: "この7日の間で、便失禁(便通をコントロールできず、もらしてしまう)がありましたか?",
@@ -216,6 +270,9 @@ var proctcae = [{
     }, {
         id: 19,
         term: "息切れ",
+        term_en: "Shortness of breath",
+        ctcae_en: "Dyspnea",
+        meddra: 10013963,
         items: [{
             q: 1,
             ask: "この7日の間で、息切れは一番ひどい時でどの程度でしたか?",
@@ -230,6 +287,9 @@ var proctcae = [{
     }, {
         id: 20,
         term: "咳(せき)",
+        term_en: "Cough",
+        ctcae_en: "Cough",
+        meddra: 10011224,
         items: [{
             q: 1,
             ask: "この7日の間で、咳(せき)は一番ひどい時でどの程度でしたか?",
@@ -244,6 +304,9 @@ var proctcae = [{
     }, {
         id: 21,
         term: "喘鳴(息をすると胸で笛が鳴るような音がする)",
+        term_en: "Wheezing",
+        ctcae_en: "Wheezing",
+        meddra: 10047924,
         items: [{
             q: 1,
             ask: "この7日の間で、喘鳴(息をすると胸で笛が鳴るような音がする)は一番ひどい時でどの程度 でしたか?",
@@ -253,6 +316,9 @@ var proctcae = [{
     }, {
         id: 22,
         term: "腕や脚のむくみ",
+        term_en: "Swelling",
+        ctcae_en: "Edema limbs",
+        meddra: 10050068,
         items: [{
             q: 1,
             ask: "この7日の間に、腕や脚がむくみましたか?",
@@ -272,6 +338,9 @@ var proctcae = [{
     }, {
         id: 23,
         term: "心臓がどきどきしたり、鼓動が速くなること(動悸)",
+        term_en: "Heart palpitations",
+        ctcae_en: "Palpitations",
+        meddra: 10033557,
         items: [{
             q: 1,
             ask: "この7日の間に、腕や脚がむくみましたか?",
@@ -286,6 +355,9 @@ var proctcae = [{
     }, {
         id: 24,
         term: "発疹",
+        term_en: "Rash",
+        ctcae_en: "Rash maculo-papular",
+        meddra: 10037868,
         items: [{
             q: 1,
             ask: "この7日の間で、肌に発疹ができましたか?",
@@ -295,6 +367,9 @@ var proctcae = [{
     }, {
         id: 25,
         term: "肌の乾燥",
+        term_en: "Skin dryness",
+        ctcae_en: "Dry skin",
+        meddra: 10013786,
         items: [{
             q: 1,
             ask: "この7日の間で、肌の乾燥は一番ひどい時でどの程度でしたか?",
@@ -304,6 +379,9 @@ var proctcae = [{
     }, {
         id: 26,
         term: "顔や胸にできたニキビや吹き出物",
+        term_en: "Acne",
+        ctcae_en: "Rash acneiform",
+        meddra: 10037847,
         items: [{
             q: 1,
             ask: "この7日の間で、顔や胸にできたニキビや吹き出物は一番ひどい時でどの程度でしたか?",
@@ -313,6 +391,9 @@ var proctcae = [{
     }, {
         id: 27,
         term: "毛髪が抜ける",
+        term_en: "Hair loss",
+        ctcae_en: "Alopecia",
+        meddra: 10001760,
         items: [{
             q: 1,
             ask: "この7日の間で、普段より毛髪が抜けましたか?",
@@ -322,6 +403,9 @@ var proctcae = [{
     }, {
         id: 28,
         term: "皮膚の痒み",
+        term_en: "Itching",
+        ctcae_en: "Pruritus",
+        meddra: 10037087,
         items: [{
             q: 1,
             ask: "この7日の間で、皮膚の痒みは一番ひどかった時でどの程度でしたか?",
@@ -331,6 +415,9 @@ var proctcae = [{
     }, {
         id: 29,
         term: "じんましん",
+        term_en: "Hives",
+        ctcae_en: "Urticaria",
+        meddra: 10046735,
         items: [{
             q: 1,
             ask: "この7日の間で、じんましん(皮膚が赤く盛り上がって痒い)がでましたか?",
@@ -340,6 +427,9 @@ var proctcae = [{
     }, {
         id: 30,
         term: "手足症候群(手足にできる皮疹で、ひび割れ、皮がむける、赤くなる、痛みなどの症状)",
+        term_en: "Hand-foot syndrome",
+        ctcae_en: "Palmar-plantar erythrodysesthesia syndrome",
+        meddra: 10054524,
         items: [{
             q: 1,
             ask: "この7日の間で、手足症候群(手足にできる皮疹で、ひび割れ、皮がむける、赤くなる、痛み などの症状)は一番ひどい時でどの程度でしたか?",
@@ -349,6 +439,9 @@ var proctcae = [{
     }, {
         id: 31,
         term: "手足の爪が剥がれる",
+        term_en: "Nail loss",
+        ctcae_en: "Nail loss",
+        meddra: 10049281,
         items: [{
             q: 1,
             ask: "この7日の間で、手足の爪が剥がれましたか?",
@@ -358,6 +451,9 @@ var proctcae = [{
     }, {
         id: 32,
         term: "手足の爪の線状、またはデコボコの隆起",
+        term_en: "Nail ridging",
+        ctcae_en: "Nail ridging",
+        meddra: 10062283,
         items: [{
             q: 1,
             ask: "この7日の間で、手足の爪に縦か横に、線状、またはデコボコの隆起ができましたか?",
@@ -367,6 +463,9 @@ var proctcae = [{
     }, {
         id: 33,
         term: "爪変色",
+        term_en: "Nail discoloration",
+        ctcae_en: "Nail discoloration",
+        meddra: 10028691,
         items: [{
             q: 1,
             ask: "この7日の間に、手足の爪に変色がみられましたか?",
@@ -376,6 +475,9 @@ var proctcae = [{
     }, {
         id: 34,
         term: "皮膚の日光過敏",
+        term_en: "Sensitivity to sunlight",
+        ctcae_en: "Photosensitivity",
+        meddra: 10034966,
         items: [{
             q: 1,
             ask: "この7日の間で、皮膚が日光に過敏になることがありましたか?",
@@ -385,6 +487,9 @@ var proctcae = [{
     }, {
         id: 35,
         term: "とこずれ",
+        term_en: "Bed/pressure sores",
+        ctcae_en: "Skin ulceration",
+        meddra: 10040947,
         items: [{
             q: 1,
             ask: "この7日の間に、とこずれはありましたか?",
@@ -394,6 +499,9 @@ var proctcae = [{
     }, {
         id: 36,
         term: "放射線治療による日焼けややけど",
+        term_en: "Radiation skin reaction",
+        ctcae_en: "Dermatitis radiation",
+        meddra: 10061103,
         items: [{
             q: 1,
             ask: "この7日の間で、放射線治療による日焼けや、やけどのような症状は一番ひどい時でどの程度でしたか?",
@@ -403,6 +511,9 @@ var proctcae = [{
     }, {
         id: 37,
         term: "皮膚の異常な黒ずみ",
+        term_en: "Skin darkening",
+        ctcae_en: "Skin hyperpigmentation",
+        meddra: 10040865,
         items: [{
             q: 1,
             ask: "この7日の間で、皮膚が異常に黒ずみましたか?",
@@ -412,6 +523,9 @@ var proctcae = [{
     }, {
         id: 38,
         term: "妊娠線のような線",
+        term_en: "Stretch marks",
+        ctcae_en: "Skin and subcutaneous tissue disorders – Other, specifiy: (Striae)",
+        meddra: 10040785,
         items: [{
             q: 1,
             ask: "この7日の間に、肌がひきつれたところに妊娠線のような線がでましたか?",
@@ -421,6 +535,9 @@ var proctcae = [{
     }, {
         id: 39,
         term: "手足の痺れやピリピリ感",
+        term_en: "Numbness & tingling",
+        ctcae_en: "Peripheral sensory neuropathy",
+        meddra: 10034620,
         items: [{
             q: 1,
             ask: "この7日の間で、手や足の痺れやピリピリ感は一番ひどい時でどの程度でしたか?",
@@ -435,6 +552,9 @@ var proctcae = [{
     }, {
         id: 40,
         term: "めまい",
+        term_en: "Dizziness",
+        ctcae_en: "Dizziness",
+        meddra: 10013573,
         items: [{
             q: 1,
             ask: "この7日の間で、めまいは一番ひどい時でどの程度でしたか?",
@@ -449,6 +569,9 @@ var proctcae = [{
     }, {
         id: 41,
         term: "かすみ目",
+        term_en: "Blurred vision",
+        ctcae_en: "Blurred vision",
+        meddra: 10005886,
         items: [{
             q: 1,
             ask: "この7日の間で、目のかすみは一番ひどい時でどの程度でしたか?",
@@ -463,6 +586,9 @@ var proctcae = [{
     }, {
         id: 42,
         term: "閃光(稲妻のような光)が走る",
+        term_en: "Flashing lights",
+        ctcae_en: "Flashing lights",
+        meddra: 10016757,
         items: [{
             q: 1,
             ask: "この7日の間で、目の前に急に閃光(稲妻のような光)が走ることはありましたか?",
@@ -472,6 +598,9 @@ var proctcae = [{
     }, {
         id: 43,
         term: "目の前に飛ぶ点や線(飛蚊症)",
+        term_en: "Visual floaters",
+        ctcae_en: "Floaters",
+        meddra: 10016778,
         items: [{
             q: 1,
             ask: "この7日の間で、目の前に点や線がひらひらと飛んでいる(飛蚊症)のが見えましたか?",
@@ -481,6 +610,9 @@ var proctcae = [{
     }, {
         id: 44,
         term: "涙目(涙が出る)",
+        term_en: "Watery eyes",
+        ctcae_en: "Watering eyes",
+        meddra: 10047848,
         items: [{
             q: 1,
             ask: "この7日の間で、涙目(涙がでる)は一番ひどい時でどの程度でしたか?",
@@ -495,6 +627,9 @@ var proctcae = [{
     }, {
         id: 45,
         term: "耳鳴り",
+        term_en: "Ringing in ears",
+        ctcae_en: "Tinnitus",
+        meddra: 10043882,
         items: [{
             q: 1,
             ask: "この7日の間で、耳鳴りは一番ひどい時でどの程度でしたか?",
@@ -504,6 +639,9 @@ var proctcae = [{
     }, {
         id: 46,
         term: "集中力の低下",
+        term_en: "Concentration",
+        ctcae_en: "Concentration impairment",
+        meddra: 10010250,
         items: [{
             q: 1,
             ask: "この7日の間で、集中力の低下は一番ひどい時でどの程度でしたか?",
@@ -518,6 +656,9 @@ var proctcae = [{
     }, {
         id: 47,
         term: "物忘れ",
+        term_en: "Memory",
+        ctcae_en: "Memory impairment",
+        meddra: 10027175,
         items: [{
             q: 1,
             ask: "この7日の間で、物忘れは一番ひどい時でどの程度でしたか?",
@@ -532,6 +673,9 @@ var proctcae = [{
     }, {
         id: 48,
         term: "痛み",
+        term_en: "General Pain",
+        ctcae_en: "Pain",
+        meddra: 10033371,
         items: [{
             q: 1,
             ask: "この7日の間に、体のどこかに痛みはありましたか?",
@@ -551,6 +695,9 @@ var proctcae = [{
     }, {
         id: 49,
         term: "頭痛",
+        term_en: "Headache",
+        ctcae_en: "Headache",
+        meddra: 10019211,
         items: [{
             q: 1,
             ask: "この7日の間で、頭痛はありましたか?",
@@ -570,6 +717,9 @@ var proctcae = [{
     }, {
         id: 50,
         term: "筋肉の痛み",
+        term_en: "Muscle pain",
+        ctcae_en: "Myalgia",
+        meddra: 10028411,
         items: [{
             q: 1,
             ask: "この7日の間に、筋肉の痛みはありましたか?",
@@ -589,6 +739,9 @@ var proctcae = [{
     }, {
         id: 51,
         term: "関節の痛み(肘、膝、肩などの関節)",
+        term_en: "Joint pain",
+        ctcae_en: "Arthralgia",
+        meddra: 10003239,
         items: [{
             q: 1,
             ask: "この7日の間に、関節(肘、膝、肩などの関節)の痛みはありましたか?",
@@ -608,6 +761,9 @@ var proctcae = [{
     }, {
         id: 52,
         term: "不眠(寝付きが悪い、途中で目が覚める、早く起きてしまう)",
+        term_en: "Insomnia",
+        ctcae_en: "Insomnia",
+        meddra: 10022437,
         items: [{
             q: 1,
             ask: "この7日の間で、不眠(寝付きが悪い、途中で目が覚める、早く起きてしまう)は一番ひどい時でどの程度でしたか?",
@@ -622,6 +778,9 @@ var proctcae = [{
     }, {
         id: 53,
         term: "疲れ、だるさ、活力低下",
+        term_en: "Fatigue",
+        ctcae_en: "Fatigue",
+        meddra: 10016256,
         items: [{
             q: 1,
             ask: "この7日の間で、疲れ、だるさ、活力低下は一番ひどい時でどの程度でしたか?",
@@ -636,6 +795,9 @@ var proctcae = [{
     }, {
         id: 54,
         term: "不安感",
+        term_en: "Anxious",
+        ctcae_en: "Anxiety",
+        meddra: 10002855,
         items: [{
             q: 1,
             ask: "この7日の間に、不安を感じましたか?",
@@ -655,6 +817,9 @@ var proctcae = [{
     }, {
         id: 55,
         term: "何をしても気分が晴れない",
+        term_en: "Discouraged",
+        ctcae_en: "Depression",
+        meddra: 10012378,
         items: [{
             q: 1,
             ask: "この7日の間で、何をしても気分が晴れないと感じることはありましたか?",
@@ -674,6 +839,9 @@ var proctcae = [{
     }, {
         id: 56,
         term: "悲しい、不幸だと感じる",
+        term_en: "Sad",
+        ctcae_en: "Depression",
+        meddra: 10012378,
         items: [{
             q: 1,
             ask: "この7日の間に、悲しい、不幸だと感じたことはありましたか?",
@@ -693,6 +861,9 @@ var proctcae = [{
     }, {
         id: 57,
         term: "生理不順",
+        term_en: "Irregular periods/vaginal bleeding",
+        ctcae_en: "Irregular menstruation",
+        meddra: 10022992,
         items: [{
             q: 1,
             ask: "この7日の間で、生理不順がありましたか?",
@@ -702,6 +873,9 @@ var proctcae = [{
     }, {
         id: 58,
         term: "予定された生理がこない",
+        term_en: "Missed expected menstrual period",
+        ctcae_en: "Irregular menstruation",
+        meddra: 10022992,
         items: [{
             q: 1,
             ask: "この7日の間で、予定された生理がこなかったですか?",
@@ -711,6 +885,9 @@ var proctcae = [{
     }, {
         id: 59,
         term: "普段と異なるおりもの",
+        term_en: "Vaginal discharge",
+        ctcae_en: "Vaginal discharge",
+        meddra: 10046901,
         items: [{
             q: 1,
             ask: "この7日の間に、膣から普段と異なるおりものがありましたか?",
@@ -720,6 +897,9 @@ var proctcae = [{
     }, {
         id: 60,
         term: "膣の乾燥",
+        term_en: "Vaginal dryness",
+        ctcae_en: "Vaginal dryness",
+        meddra: 10046904,
         items: [{
             q: 1,
             ask: "この7日の間で、膣の乾燥は一番ひどい時でどの程度でしたか?",
@@ -729,6 +909,9 @@ var proctcae = [{
     }, {
         id: 61,
         term: "排尿時の痛みや焼けるような感じ",
+        term_en: "Painful urination",
+        ctcae_en: "Urinary tract pain",
+        meddra: 10062225,
         items: [{
             q: 1,
             ask: "この7日の間で、排尿時の痛みや焼けるような感じは一番ひどい時でどの程度でしたか?",
@@ -738,6 +921,9 @@ var proctcae = [{
     }, {
         id: 62,
         term: "切迫した尿意",
+        term_en: "Urinary urgency",
+        ctcae_en: "Urinary urgency",
+        meddra: 10046593,
         items: [{
             q: 1,
             ask: "この7日の間で、突然切迫した尿意を感じたことはありましたか?",
@@ -752,6 +938,9 @@ var proctcae = [{
     }, {
         id: 63,
         term: "尿が近い",
+        term_en: "Urinary frequency",
+        ctcae_en: "Urinary frequency",
+        meddra: 10046539,
         items: [{
             q: 1,
             ask: "この7日の間で、尿が近いことはありましたか?",
@@ -766,6 +955,9 @@ var proctcae = [{
     }, {
         id: 64,
         term: "尿の色が普段と違う",
+        term_en: "Change in usual urine color",
+        ctcae_en: "Urine discoloration",
+        meddra: 10046628,
         items: [{
             q: 1,
             ask: "この7日の間で、尿の色が普段と違うことがありましたか?",
@@ -775,6 +967,9 @@ var proctcae = [{
     }, {
         id: 65,
         term: "尿失禁(または尿漏れ)",
+        term_en: "Urinary incontinence",
+        ctcae_en: "Urinary incontinence",
+        meddra: 10046543,
         items: [{
             q: 1,
             ask: "この7日の間で、尿失禁(または尿漏れ)したことがありましたか?",
@@ -789,6 +984,9 @@ var proctcae = [{
     }, {
         id: 66,
         term: "勃起しにくい、またはすぐ萎える",
+        term_en: "Achieve and maintain erection",
+        ctcae_en: "Erectile dysfunction",
+        meddra: 10061461,
         items: [{
             q: 1,
             ask: "この7日の間で、勃起しにくい、またはすぐ萎えるということは一番ひどい時でどの程度でしたか?",
@@ -798,6 +996,9 @@ var proctcae = [{
     }, {
         id: 67,
         term: "射精に関する問題",
+        term_en: "Ejaculation",
+        ctcae_en: "Ejaculation disorder",
+        meddra: 10014326,
         items: [{
             q: 1,
             ask: "この7日の間で、射精に関する問題がありましたか?",
@@ -807,6 +1008,9 @@ var proctcae = [{
     }, {
         id: 68,
         term: "性欲減退",
+        term_en: "Decreased libido",
+        ctcae_en: "Libido decreased",
+        meddra: 10024419,
         items: [{
             q: 1,
             ask: "この7日の間で、性欲減退は一番ひどい時でどの程度でしたか?",
@@ -816,6 +1020,9 @@ var proctcae = [{
     }, {
         id: 69,
         term: "オルガズムやクライマックスまでに時間がかかりすぎる",
+        term_en: "Delayed orgasm",
+        ctcae_en: "Delayed orgasm",
+        meddra: 10057066,
         items: [{
             q: 1,
             ask: "この7日の間に、普段に比べてオルガズムやクライマックスまでに時間がかかりすぎると感じたことはありますか?",
@@ -825,6 +1032,9 @@ var proctcae = [{
     }, {
         id: 70,
         term: "普段に比べてオルガズムやクライマックスが無い",
+        term_en: "Unable to have orgasm",
+        ctcae_en: "Anorgasmia",
+        meddra: 10002652,
         items: [{
             q: 1,
             ask: "この7日の間で、セックスをしてもオルガズムやクライマックスが無いことがありましたか?",
@@ -834,6 +1044,9 @@ var proctcae = [{
     }, {
         id: 71,
         term: "性交時の痛み(膣内)",
+        term_en: "Pain w/sexual intercourse",
+        ctcae_en: "Dyspareunia",
+        meddra: 10013941,
         items: [{
             q: 1,
             ask: "この7日の間で、性交時の痛み(膣内)は一番ひどい時でどの程度でしたか?",
@@ -843,6 +1056,9 @@ var proctcae = [{
     }, {
         id: 72,
         term: "乳房の張りや圧痛",
+        term_en: "Breast swelling and tenderness",
+        ctcae_en: "Gynecomastia(male), Breast pain (woman)",
+        meddra: 10006298, // 10018801
         items: [{
             q: 1,
             ask: "この7日の間で、乳房の張りや圧痛(触ったり押したりすると痛い)は一番ひどい時でどの程度でしたか?",
@@ -852,6 +1068,9 @@ var proctcae = [{
     }, {
         id: 73,
         term: "内出血(黒や青のあざ)",
+        term_en: "Bruising",
+        ctcae_en: "Bruising",
+        meddra: 10006504,
         items: [{
             q: 1,
             ask: "この7日の間に、よく内出血(黒や青のあざ)しましたか?",
@@ -861,6 +1080,9 @@ var proctcae = [{
     }, {
         id: 74,
         term: "震えや寒け",
+        term_en: "Chills",
+        ctcae_en: "Chills",
+        meddra: 10008531,
         items: [{
             q: 1,
             ask: "この7日の間に、震えや寒けを感じましたか?",
@@ -875,6 +1097,9 @@ var proctcae = [{
     }, {
         id: 75,
         term: "昼間または夜間の予想外、または大量の汗",
+        term_en: "Increased sweating",
+        ctcae_en: "Hyperhidrosis",
+        meddra: 10020642,
         items: [{
             q: 1,
             ask: "この7日の間に、昼間または夜、(体のほてりやのぼせとは関係なく)予想外に汗をかく、または、大量の汗をかくことがありましたか?",
@@ -889,6 +1114,9 @@ var proctcae = [{
     }, {
         id: 76,
         term: "汗が予想外に少ない",
+        term_en: "Decreased sweating",
+        ctcae_en: "Hypohidrosis",
+        meddra: 10021013,
         items: [{
             q: 1,
             ask: "この7日の間で、汗が予想外に少ないということはありましたか?",
@@ -898,6 +1126,9 @@ var proctcae = [{
     }, {
         id: 77,
         term: "ほてりやのぼせ",
+        term_en: "Hot flashes",
+        ctcae_en: "Hot flashes",
+        meddra: 10020407,
         items: [{
             q: 1,
             ask: "この7日の間で、体のほてりやのぼせを感じたことはありましたか?",
@@ -912,6 +1143,9 @@ var proctcae = [{
     }, {
         id: 78,
         term: "鼻血",
+        term_en: "Nosebleed",
+        ctcae_en: "Epistaxis",
+        meddra: 10015090,
         items: [{
             q: 1,
             ask: "この7日の間で、鼻血がでましたか?",
@@ -926,6 +1160,9 @@ var proctcae = [{
     }, {
         id: 79,
         term: "注射部が痛む、腫れる、赤くなる",
+        term_en: "Pain and swelling at injection site",
+        ctcae_en: "Injection site reaction",
+        meddra: 10022095,
         items: [{
             q: 1,
             ask: "この7日の間で、注射または点滴をしたところに、痛み、腫れ、赤くなることがありましたか?",
@@ -935,6 +1172,9 @@ var proctcae = [{
     }, {
         id: 80,
         term: "体臭",
+        term_en: "Body odor",
+        ctcae_en: "Body odor",
+        meddra: 10005901,
         items: [{
             q: 2,
             ask: "この7日の間で、あなたの体臭は一番強い時でどの程度でしたか?",
