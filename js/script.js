@@ -3,11 +3,23 @@ angular.module('app', ['ionic', 'jett.ionic.filter.bar', 'ui.router', 'ng-sortab
         $scope.shareData = sharedService;
         var selected = [1, 3, 5, 7];
         var filteredItems = proctcae.filter(function (val) {
+            return selected.some(function(s){
+                return s === val.id;
+            })
+        });
+        var filteredItems2 = proctcae.filter(function (val) {
+            return !selected.some(function(s){
+                return s === val.id;
+            })
+        });
+        /*
+        var filteredItems = proctcae.filter(function (val) {
             return selected.includes(val.id);
         });
         var filteredItems2 = proctcae.filter(function (val) {
             return !selected.includes(val.id);
         });
+        */
         $scope.shareData.elements = filteredItems;
         $scope.shareData.elements2 = filteredItems2;
 
