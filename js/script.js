@@ -226,7 +226,6 @@ angular.module('ctcaeApp', ['ionic', 'jett.ionic.filter.bar', 'ui.router', 'ng-s
             }
         }
         */
-
         //////////////////////////////
         ////// search filter
         //////////////////////////////
