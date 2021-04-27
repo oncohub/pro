@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=auto">
     <meta name="description"
-        content="An easy way to browse Common Terminology Criteria for Adverse Events (CTCAE) v5.0. JCOG version supported.">
+        content="PRO CTCAE">
     <title>PRO CTCAE</title>
     <meta name="keywords"
         content="JCOG, CTCAE, mapping, iOS, Android, Windows, Chrome, Edge, iPhone, iPad, iPhoneX, Android, GitHub, Common Terminology Criteria for Adverse Events">
@@ -28,21 +28,21 @@
     <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon-180x180.png" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="CTCAE 5.0 PWA">
+    <meta name="apple-mobile-web-app-title" content="PRO CTCAE">
     <meta name="msapplication-TileImage" content="images/icons/msTile.png">
     <meta name="msapplication-TileColor" content="#387ef5">
     <meta name="theme-color" content="#0c60ee" />
 
     <!-- Facebook and Twitter integration -->
-    <meta property="og:title" content="CTCAE 5.0 PWA" />
+    <meta property="og:title" content="PRO CTCAE" />
     <meta property="og:description"
-        content="CTCAE 5.0 PWA provides you an easy way to access Common Terminology Criteria for Adverse Events (CTCAE) v5.0 for chairside and bedside use" />
+        content="PRO CTCAE" />
     <meta property="og:image" content="images/800x800.jpg" />
     <meta property="og:url" content="https://oncohub.github.io/ctcae5/" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="iCommuse.com" />
     <meta property="og:description"
-        content="CTCAE 5.0 PWA provides you an easy way to access Common Terminology Criteria for Adverse Events (CTCAE) v5.0 for chairside and bedside use" />
+        content="PRO CTCAE" />
     <meta name="twitter:title" content="CTCAE 5.0 PWA" />
     <meta name="twitter:image" content="images/1024x512.jpg" />
     <meta name="twitter:url" content="https://oncohub.github.io/ctcae5/" />
@@ -64,7 +64,7 @@
     </script>
 </head>
 
-<body ng-app="ctcaeApp">
+<body ng-app="app">
     <script id="tabs.html" type="text/ng-template">
         <ion-view>
         <ion-tabs class="tabs-icon-top tabs-positive">
@@ -90,7 +90,7 @@
     <script src="ionic/angular-ui/angular-ui-router.min.js"></script>
     <script src="js/ctcaev5.min.js"></script>
     <script src="ionic/ionic.filter.bar.min.js"></script>
-    <script src="js/script.min.js"></script>
+    <script src="js/script.js"></script>
     <script src="js/xlsx.full.min.js"></script>
     <script src="js/Sortable.min.js"></script>
     <script src="js/angular-legacy-sortable.js"></script>
@@ -102,7 +102,7 @@
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker
                 .register('service-worker.js', {
-                    scope: '/ctcae5/'
+                    scope: '/pro/'
                 })
                 .then(function (registration) {
                     console.log("Service Worker Registered");
