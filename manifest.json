@@ -1,6 +1,6 @@
 {
-    "name": "CTCAE 5.0",
-    "short_name": "CTCAE 5",
+    "name": "PRO-CTCAE",
+    "short_name": "PRO-CTCAE",
     "icons": [{
             "src": "windows10/Square71x71Logo.scale-400.png",
             "sizes": "284x284"
@@ -263,7 +263,7 @@
         }
 
     ],
-    "start_url": "https://oncohub.github.io/ctcae5/",
+    "start_url": "https://oncohub.github.io/pro/",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#ffffff"

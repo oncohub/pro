@@ -65,7 +65,7 @@
     </script>
 </head>
 
-<body ng-app="ctcaeApp">
+<body ng-app="app">
     <script id="tabs.html" type="text/ng-template">
         <ion-view>
         <ion-tabs class="tabs-icon-top tabs-positive">
@@ -103,7 +103,7 @@
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker
                 .register('service-worker.js', {
-                    scope: '/ctcae5/'
+                    scope: '/pro/'
                 })
                 .then(function (registration) {
                     console.log("Service Worker Registered");
