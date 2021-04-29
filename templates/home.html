@@ -13,8 +13,8 @@
             ng-style="{'height': height('ref') + 'px'}">
             <div id="list1" class="draglist-left" ng-sortable="sortableConf">
                 <div class="card" ng-repeat="element in shareData.elements" 　id="element.id">
-                    <div class="card-header my-handle">
-                        <span>{{element.term}}</span>
+                    <div class="card-header my-handle item item-icon-right" >
+                        <span>{{element.term}}</span><a ng-click="moveItemOneToTwo(element.id)"> <i class="icon ion-arrow-right-c"></i></a>
                     </div>
                     <div class="item-collapse animate-if" ng-repeat="item in element.items"
                         ng-show="$index > 0 ? element.items[0].selected > 0 : true">
@@ -43,10 +43,11 @@
             <input style="width: auto; border-radius:20px; padding: 4px 8px; margin-bottom:20px;"
                 ng-change="changed(searchText)" ng-model="searchText" placeholder="Search..."></label>
             <div id="list2" class="draglist-right" ng-sortable="sortableConf">
-                <div class="list-group-item card" ng-repeat="element in shareData.elements2 | filter:searchText"
-                    id={{element.id}}>
-                    <div>
-                        <span class="item-show"></span> {{element.term}}</div>
+                <div class="list-group-item card " ng-repeat="element in shareData.elements2 | filter:searchText"
+                    id={{element.id}} >
+                    <div class="item item-icon-left" >
+                        <a ng-click="moveItemTwoToOne(element.id)"> <i class="icon ion-arrow-left-c"></i></a><span class="item-show"></span>{{element.term}} 
+                    </div>
                 </div>
             </div>
         </div>

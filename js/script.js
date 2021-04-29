@@ -37,8 +37,29 @@ angular.module('app', ['ionic', 'jett.ionic.filter.bar', 'ui.router', 'ng-sortab
             })
         });
 
+
         $scope.shareData.elements = filteredItems;
         $scope.shareData.elements2 = filteredItems2;
+
+        $scope.moveItemOneToTwo = function(id){
+            var ele = proctcae.filter(function (val) {
+                return val.id === id;
+            })[0];
+            $scope.shareData.elements = $scope.shareData.elements.filter(function(ele){
+                return ele.id !== id;
+            })
+            $scope.shareData.elements2.unshift(ele);
+        }
+        $scope.moveItemTwoToOne = function(id){
+            var ele = proctcae.filter(function (val) {
+                return val.id === id;
+            })[0];
+            $scope.shareData.elements2 = $scope.shareData.elements2.filter(function(ele){
+                return ele.id !== id;
+            })
+            $scope.shareData.elements.unshift(ele);
+        }
+
 
         var el1 = document.getElementById('list1');
         var el2 = document.getElementById('list2');
@@ -76,7 +97,7 @@ angular.module('app', ['ionic', 'jett.ionic.filter.bar', 'ui.router', 'ng-sortab
                 evt.preventDefault();
                 evt.stopPropagation();
                 $timeout(function () {
-                    $scope.shareData.elements2 = angular.copy(homeElements);
+                    ///$scope.shareData.elements2 = angular.copy(homeElements);
                     if ($scope.searchText) {
                         $scope.searchText = undefined;
                     }
