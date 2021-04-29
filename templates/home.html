@@ -10,7 +10,7 @@
     <div id="shared-lists" class="row" >
 
         <div class="list-group" ng-class="{'col-9' : toggleStatus, 'col-12': !toggleStatus}" ng-style="{'height': height('ref') + 'px'}">
-            <div id="list1" class="draglist-left" ng-sortable>
+            <a href="#"  id="list1" class="draglist-left" ng-sortable>
                 <div class="card" ng-repeat="element in shareData.elements" 　id="element.id">
                     <div class="card-header my-handle">
                         <span>{{element.term}}</span>
@@ -35,19 +35,19 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
         <!-- score box > dictation > dnd list -->
         <div class="list-group"  ng-class="{'col-3' : toggleStatus}" ng-style="{'height': height('ref') + 'px'}">
             <input style="width: auto; border-radius:20px; padding: 4px 8px; margin-bottom:20px;"
                 ng-change="changed(searchText)" ng-model="searchText" placeholder="Search..."></label>
-            <div id="list2" class="draglist-right" ng-sortable>
+            <a href="#"  id="list2" class="draglist-right" ng-sortable>
                 <div class="list-group-item card" ng-repeat="element in shareData.elements2 | filter:searchText"
                     id={{element.id}}>
                     <div>
                         <span class="item-show"></span> {{element.term}}</div>
                 </div>
-            </div>
+            </a >
         </div>
     </div>
 </div>
