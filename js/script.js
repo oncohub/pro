@@ -1,25 +1,42 @@
 angular.module('app', ['ionic', 'jett.ionic.filter.bar', 'ui.router', 'ng-sortable', 'barcode', 'angular-barcode'])
     .controller('HomeCtrl', ["$scope", "$timeout", "$state", "$window", "sharedService", "$ionicScrollDelegate", "$ionicFilterBar", "$ionicSideMenuDelegate", "$ionicLoading", "$ionicPopup", function ($scope, $timeout, $state, $window, sharedService, $ionicScrollDelegate, $ionicFilterBar, $ionicSideMenuDelegate, $ionicLoading, $ionicPopup) {
         $scope.shareData = sharedService;
+
+        $scope.sortableConf = {
+            animation: 400,
+            delay: 100,
+            ghostClass: 'sortable-ghost',
+            dragClass: 'sortable-drag',
+            chosenClass: 'sortable-chosen',
+            handle: '.grab-handle',
+            forceFallback: true,
+            onStart: function (evt) {
+                $scope.sortableDragFlg = true;
+            },
+            onEnd: function (evt) {
+                $scope.sortableDragFlg = false;
+            },
+            onSort: function (evt) {
+                $scope.sortingFlg = true;
+            },
+            store: {
+                set: function (sortable) {
+                    $scope.sortingResult = sortable.toArray();
+                }
+            }
+        }
         var selected = [1, 3, 5, 7];
         var filteredItems = proctcae.filter(function (val) {
-            return selected.some(function(s){
+            return selected.some(function (s) {
                 return s === val.id;
             })
         });
         var filteredItems2 = proctcae.filter(function (val) {
-            return !selected.some(function(s){
+            return !selected.some(function (s) {
                 return s === val.id;
             })
         });
-        /*
-        var filteredItems = proctcae.filter(function (val) {
-            return selected.includes(val.id);
-        });
-        var filteredItems2 = proctcae.filter(function (val) {
-            return !selected.includes(val.id);
-        });
-        */
+
         $scope.shareData.elements = filteredItems;
         $scope.shareData.elements2 = filteredItems2;
 
@@ -37,16 +54,16 @@ angular.module('app', ['ionic', 'jett.ionic.filter.bar', 'ui.router', 'ng-sortab
                 console.log('list2 > list1 change', homeElements);
             }
         });
-/*
-        $scope.cancell = function (evt) {
-            try {
-                evt.preventDefault();
-                evt.stopPropagation();
-            } catch (e) {
+        /*
+                $scope.cancell = function (evt) {
+                    try {
+                        evt.preventDefault();
+                        evt.stopPropagation();
+                    } catch (e) {
 
-            }
-        }
-*/
+                    }
+                }
+        */
         Sortable.create(el2, {
             group: 'todo',
             animation: 150,
@@ -97,7 +114,7 @@ angular.module('app', ['ionic', 'jett.ionic.filter.bar', 'ui.router', 'ng-sortab
         }
 
         $scope.shareData.element = function (ele) {
-            return ele.items.some(function(item) {
+            return ele.items.some(function (item) {
                 return (item.selected || item.selected === 0)
             });
         }
@@ -132,50 +149,11 @@ angular.module('app', ['ionic', 'jett.ionic.filter.bar', 'ui.router', 'ng-sortab
 
         });
         $scope.$on('$ionicView.beforeEnter', function (e) {
-                $scope.shareData.flagNum = Object.keys($scope.shareData.flags).length;
+            $scope.shareData.flagNum = Object.keys($scope.shareData.flags).length;
 
         });
         $scope.$on('$ionicView.afterEnter', function () {
-            /*
-                        var getFirstBrowserLanguage = function () {
-                            var nav = window.navigator,
-                                browserLanguagePropertyKeys = ['language', 'browserLanguage', 'systemLanguage', 'userLanguage'],
-                                i,
-                                language;
 
-                            // support for HTML 5.1 "navigator.languages"
-                            if (Array.isArray(nav.languages)) {
-                                for (i = 0; i < nav.languages.length; i++) {
-                                    language = nav.languages[i];
-                                    if (language && language.length) {
-                                        return language;
-                                    }
-                                }
-                            }
-
-                            // support for other well known properties in browsers
-                            for (i = 0; i < browserLanguagePropertyKeys.length; i++) {
-                                language = nav[browserLanguagePropertyKeys[i]];
-                                if (language && language.length) {
-                                    return language;
-                                }
-                            }
-
-                            return null;
-                        };
-                        if ($scope.shareData.secondaryOn) {
-                            if (getFirstBrowserLanguage() === 'ja') {
-                                $scope.shareData.lang = 'ja';
-                                $scope.shareData.langJa = true;
-                            } else {
-                                $scope.shareData.lang = 'en';
-                                $scope.shareData.langJa = null;
-                            }
-                        } else {
-                            $scope.shareData.lang = 'en';
-                            $scope.shareData.langJa = null;
-                        }
-            */
         });
 
         $scope.freezeScroll = function () {
@@ -436,7 +414,7 @@ angular.module('app', ['ionic', 'jett.ionic.filter.bar', 'ui.router', 'ng-sortab
                         $ionicScrollDelegate.scrollTop(false);
                     }, 300)
                 }
-        */
+        
         $scope.getFlag = function () {
             var flagList = Object.keys($scope.shareData.flags);
             $scope.shareData.itemList = $scope.shareData.rawList.filter(function (item) {
@@ -566,7 +544,7 @@ angular.module('app', ['ionic', 'jett.ionic.filter.bar', 'ui.router', 'ng-sortab
                 console.log('db delete error');
             }
         }
-
+*/
         /*
         browsercheck();
 
@@ -626,13 +604,13 @@ angular.module('app', ['ionic', 'jett.ionic.filter.bar', 'ui.router', 'ng-sortab
     .controller('PsCtrl', ["$scope", "sharedService", function ($scope, sharedService) {
         $scope.shareData = sharedService;
         $scope.$on('$ionicView.beforeEnter', function (e) {
-            $scope.shareData.aeList = $scope.shareData.elements.map(function(element){
-                return element.id + ": " + element.term + "\n" + element.items.map(function(item){
-                    return item.title + item.ans.filter(function(a, i){
+            $scope.shareData.aeList = $scope.shareData.elements.map(function (element) {
+                return element.id + ": " + element.term + "\n" + element.items.map(function (item) {
+                    return item.title + item.ans.filter(function (a, i) {
                         return item.selected === i;
                     })[0];
                 })
-                
+
             }).join("\n");
 
         });
@@ -671,11 +649,11 @@ angular.module('app', ['ionic', 'jett.ionic.filter.bar', 'ui.router', 'ng-sortab
                 }).sort();
 
                 var divAdded = [];
-                $scope.shareData.itemList.sort(function(a, b) {
+                $scope.shareData.itemList.sort(function (a, b) {
                     return a["B"].localeCompare(b["B"]) || a["A"].localeCompare(b["A"]);
                 });
 
-                $scope.shareData.groupList.forEach(function(item) {
+                $scope.shareData.groupList.forEach(function (item) {
                     var pos = $scope.shareData.itemList.map(function (element) {
                         return element["B"];
                     }).indexOf(item);
@@ -764,15 +742,15 @@ angular.module('app', ['ionic', 'jett.ionic.filter.bar', 'ui.router', 'ng-sortab
         }
 
         $scope.anscheck = function (ele) {
-            try{
-            text = String(ele.id);
-            ele.items.forEach(function(item) {
-                text = text + "q" + item.q + "s" + (item.selected === undefined ? "x" : item.selected);
-            })
-            return text;
-        } catch(e){
-            
-        }
+            try {
+                text = String(ele.id);
+                ele.items.forEach(function (item) {
+                    text = text + "q" + item.q + "s" + (item.selected === undefined ? "x" : item.selected);
+                })
+                return text;
+            } catch (e) {
+
+            }
         }
 
     }])
