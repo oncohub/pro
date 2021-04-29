@@ -41,20 +41,20 @@ angular.module('app', ['ionic', 'jett.ionic.filter.bar', 'ui.router', 'ng-sortab
         $scope.shareData.elements = filteredItems;
         $scope.shareData.elements2 = filteredItems2;
 
-        $scope.moveItemOneToTwo = function(id){
+        $scope.moveItemOneToTwo = function (id) {
             var ele = proctcae.filter(function (val) {
                 return val.id === id;
             })[0];
-            $scope.shareData.elements = $scope.shareData.elements.filter(function(ele){
+            $scope.shareData.elements = $scope.shareData.elements.filter(function (ele) {
                 return ele.id !== id;
             })
             $scope.shareData.elements2.unshift(ele);
         }
-        $scope.moveItemTwoToOne = function(id){
+        $scope.moveItemTwoToOne = function (id) {
             var ele = proctcae.filter(function (val) {
                 return val.id === id;
             })[0];
-            $scope.shareData.elements2 = $scope.shareData.elements2.filter(function(ele){
+            $scope.shareData.elements2 = $scope.shareData.elements2.filter(function (ele) {
                 return ele.id !== id;
             })
             $scope.shareData.elements.unshift(ele);
@@ -122,8 +122,17 @@ angular.module('app', ['ionic', 'jett.ionic.filter.bar', 'ui.router', 'ng-sortab
             return false;
         }
 
-        $scope.setGrade = function (item, index) {
-            item.selected = index;
+        $scope.setGrade = function (element, i, item, j) {
+            item.selected = j;
+            console.log(element);
+            if (element.items[0].selected === 0){
+                element.items.forEach(function(e, u){
+if (u > 0){
+    e.selected = undefined;
+}
+
+                })
+            }
         }
 
         $scope.height = function (id) {
@@ -626,13 +635,14 @@ angular.module('app', ['ionic', 'jett.ionic.filter.bar', 'ui.router', 'ng-sortab
         $scope.shareData = sharedService;
         $scope.$on('$ionicView.beforeEnter', function (e) {
             $scope.shareData.aeList = $scope.shareData.elements.map(function (element) {
-                return element.id + ": " + element.term + "\n" + element.items.map(function (item) {
-                    return item.title + item.ans.filter(function (a, i) {
-                        return item.selected === i;
-                    })[0];
-                })
-
-            }).join("\n");
+                return element.id + ": " + element.term + "\n" + element.items.map(function (item, j, self) {
+                    if (j > 0 ? element.items[0].selected > 0 : true) {
+                        return " " + item.title + item.ans.filter(function (a, i) {
+                            return item.selected === i;
+                        })[0] + "\n";
+                    }
+                });
+            }).join("\n").replace(",", "");
 
         });
 

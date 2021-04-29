@@ -10,6 +10,9 @@
     }
 }
 */
+.col-null {
+    transform: translateX(0px);
+}
 
 ion-header-bar.bar .title.title-left {
     left: 40px !important;
