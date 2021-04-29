@@ -129,20 +129,10 @@ angular.module('app', ['ionic', 'jett.ionic.filter.bar', 'ui.router', 'ng-sortab
         $scope.shareData.secondaryOn = true; //bilingual setting
 
         $scope.$on('$ionicView.beforeLeave', function (e) {
-            try {
-                document.getElementById('filterBar').style.display = 'none';
-            } catch (e) {
-                console.log(e);
-            }
+
         });
         $scope.$on('$ionicView.beforeEnter', function (e) {
-            try {
                 $scope.shareData.flagNum = Object.keys($scope.shareData.flags).length;
-                document.getElementById('filterBar').style.display = 'inherit';
-
-            } catch (e) {
-                console.log(e);
-            }
 
         });
         $scope.$on('$ionicView.afterEnter', function () {
@@ -635,13 +625,18 @@ angular.module('app', ['ionic', 'jett.ionic.filter.bar', 'ui.router', 'ng-sortab
     }])
     .controller('PsCtrl', ["$scope", "sharedService", function ($scope, sharedService) {
         $scope.shareData = sharedService;
-        $scope.$on('$ionicView.enter', function (e) {
-            try {
-                document.getElementById('filterBar').style.display = 'none';
-            } catch (e) {
-                console.log(e);
-            }
+        $scope.$on('$ionicView.beforeEnter', function (e) {
+            $scope.shareData.aeList = $scope.shareData.elements.map(function(element){
+                return element.id + ": " + element.term + "\n" + element.items.map(function(item){
+                    return item.title + item.ans.filter(function(a, i){
+                        return item.selected === i;
+                    })[0];
+                })
+                
+            }).join("\n");
+
         });
+
 
         $scope.shareData.fileNameChanged = function (event) {
             var files = event.target.files;
@@ -769,23 +764,22 @@ angular.module('app', ['ionic', 'jett.ionic.filter.bar', 'ui.router', 'ng-sortab
         }
 
         $scope.anscheck = function (ele) {
+            try{
             text = String(ele.id);
             ele.items.forEach(function(item) {
                 text = text + "q" + item.q + "s" + (item.selected === undefined ? "x" : item.selected);
             })
-
             return text;
+        } catch(e){
+            
+        }
         }
 
     }])
     .controller('InfoCtrl', ["$scope", "sharedService", "$ionicPopup", function ($scope, sharedService, $ionicPopup) {
         $scope.shareData = sharedService;
         $scope.$on('$ionicView.enter', function (e) {
-            try {
-                document.getElementById('filterBar').style.display = 'none';
-            } catch (e) {
-                console.log(e);
-            }
+
         });
         $scope.shareData.removeFlags = function () {
 
