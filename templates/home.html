@@ -11,7 +11,7 @@
 
         <div class="list-group" ng-class="{'col-9' : toggleStatus, 'col-12': !toggleStatus}"
             ng-style="{'height': height('ref') + 'px'}">
-            <!-- <ion-content style="top:0; bottom:0;"> -->
+            <ion-content style="top:0; bottom:0;">
                 <div id="list1" class="draglist-left" ng-sortable="sortableConf">
                     <div class="card" ng-repeat="element in shareData.elements" 　id="element.id">
                         <div class="card-header my-handle item item-icon-right">
@@ -38,15 +38,15 @@
                         </div>
                     </div>
                 </div>
-            <!-- </ion-content> -->
+            </ion-content>
         </div>
         <!-- score box > dictation > dnd list -->
         <div class="list-group" ng-class="{'col-3' : toggleStatus, 'col-null': !toggleStatus}"
             ng-style="{'height': height('ref') + 'px'}">
 
-            <input style="width: auto; margin: 10px; border-radius:20px; padding: 4px 8px; "
+            <input style="width: auto; margin: 10px 10px 20px 10px; border-radius:20px; padding: 4px 8px; "
                 ng-change="changed(searchText)" ng-model="searchText" placeholder="Search...">
-            <!-- <ion-content style="top:60px; bottom:0;"> -->
+            <ion-content style="top:60px; bottom:0;">
                 <div id="list2" class="draglist-right" style="padding-bottom:20px;" ng-sortable="sortableConf">
                     <div class="list-group-item card " ng-repeat="element in shareData.elements2 | filter:searchText"
                         id={{element.id}}>
@@ -57,7 +57,7 @@
                         </div>
                     </div>
                 </div>
-            <!-- </ion-content> -->
+            </ion-content>
         </div>
     </div>
 </div>
