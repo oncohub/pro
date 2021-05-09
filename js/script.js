@@ -25,7 +25,7 @@ angular.module('app', ['ionic', 'jett.ionic.filter.bar', 'ui.router', 'ng-sortab
                 }
             }
         }
-        var selected = [1, 3, 5, 7];
+        var selected = [3, 7, 8, 9, 10, 15, 16, 19, 20, 30];
         var filteredItems = proctcae.filter(function (val) {
             return selected.some(function (s) {
                 return s === val.id;
@@ -58,6 +58,9 @@ angular.module('app', ['ionic', 'jett.ionic.filter.bar', 'ui.router', 'ng-sortab
                 return ele.id !== id;
             })
             $scope.shareData.elements.unshift(ele);
+            $timeout(function () {
+                $ionicScrollDelegate.$getByHandle('mainScroll').scrollTop(false);
+            }, 300);
         }
 
 
@@ -125,11 +128,11 @@ angular.module('app', ['ionic', 'jett.ionic.filter.bar', 'ui.router', 'ng-sortab
         $scope.setGrade = function (element, i, item, j) {
             item.selected = j;
             console.log(element);
-            if (element.items[0].selected === 0){
-                element.items.forEach(function(e, u){
-if (u > 0){
-    e.selected = undefined;
-}
+            if (element.items[0].selected === 0) {
+                element.items.forEach(function (e, u) {
+                    if (u > 0) {
+                        e.selected = undefined;
+                    }
 
                 })
             }
@@ -633,18 +636,175 @@ if (u > 0){
     }])
     .controller('PsCtrl', ["$scope", "sharedService", function ($scope, sharedService) {
         $scope.shareData = sharedService;
-        $scope.$on('$ionicView.beforeEnter', function (e) {
+
+        function severe(item, severity) {
+            try {
+                return item[severity].some(function (o) {
+                    return o === item.selected;
+                });
+            } catch (e) {
+                return false;
+            }
+        }
+
+        function load() {
+            makeAeList();
+            $scope.ctcaes = $scope.shareData.elements.map(function (element) {
+                var memo = [false, false];
+                var score = [undefined, undefined, undefined];
+                var yn = 9;
+                element.items.forEach(function (item) {
+                    if (item.title === "頻度: ") { //, 程度, 生活の妨げ
+                        score[0] = item.selected;
+                        severe(item, "yellow") ? memo[0] = true : memo[0] = false;
+                        severe(item, "red") ? memo[1] = true : memo[1] = false;
+                    }
+                    if (item.title === "程度: ") { //, 程度, 生活の妨げ
+                        score[1] = item.selected;
+                        severe(item, "yellow") ? memo[0] = true : memo[0] = false;
+                        severe(item, "red") ? memo[1] = true : memo[1] = false;
+                    }
+                    if (item.title === "生活の妨げ: ") { //, 程度, 生活の妨げ
+                        score[2] = item.selected;
+                        severe(item, "yellow") ? memo[0] = true : memo[0] = false;
+                        severe(item, "red") ? memo[1] = true : memo[1] = false;
+                    }
+                    if (item.title === "有無: ") { //, 程度, 生活の妨げ
+                        if (item.selected === 0) {
+                            yn = 1;
+                        } else if (item.selected === 1) {
+                            yn = 0;
+                        }
+                        severe(item, "yellow") ? memo[0] = true : memo[0] = false;
+                        severe(item, "red") ? memo[1] = true : memo[1] = false;
+                    }
+                });
+                element["severity"] = memo[0] ? "★" : memo[1] ? "★★" : null;
+                console.log(element);
+                var output = {};
+                var singleItem = ctcae.filter(function (term) {
+                    return String(term.meddra) === String(element.meddra);
+                })[0];
+                if (yn === 9) {
+                    try {
+                        var selectedScore = proToCtcae.filter(function (item) {
+                            return item[0] === score[0] && item[1] === score[1] && item[2] === score[2];
+                        })[0][3];
+                        output["meddra"] = element.meddra;
+                        if (!element["selected"]) {
+                            element["selected"] = selectedScore;
+                        }
+                        output["severity"] = element["severity"] 
+                        output["selected"] = selectedScore;
+                        output["ja"] = singleItem.termja;
+                        output["en"] = element.ctcaev5;
+                        output["ctcae"] = singleItem;
+                    } catch (e) {
+                        output["meddra"] = element.meddra;
+                        if (!element["selected"]) {
+                            element["selected"] = undefined;
+                        }
+                        output["severity"] = element["severity"] 
+                        output["selected"] = undefined;
+                        output["ja"] = singleItem.termja;
+                        output["en"] = element.ctcaev5;
+                        output["ctcae"] = singleItem;
+                    }
+                } else {
+                    output["meddra"] = element.meddra;
+                    if (!element["selected"]) {
+                        element["selected"] = yn;
+                    }
+                    output["selected"] = yn;
+                    output["severity"] = element["severity"] 
+                    output["ja"] = singleItem.termja;
+                    output["en"] = element.ctcaev5;
+                    output["ctcae"] = singleItem;
+                }
+                return output;
+            });
+            var ctcaeList = "";
+            $scope.ctcaes.forEach(function (ele) {
+                ctcaeList = ctcaeList + "\n" + bar(ele.selected) + "  " + ele.ja + (ele.selected !== undefined ? ": Grade " + ele.selected : ": undefined");
+            });
+            $scope.shareData.aeList = "|||||　PRO-CTCAE |||||\n\n" + $scope.shareData.aeList + "\n|||||　CTCAE　|||||\nGrade 自動変換値 (→ 入力値)\n" + ctcaeList;
+        }
+
+        function bar(selected) {
+            var selectedBar = "□□□□□";
+            switch (selected) {
+                case 1:
+                    selectedBar = "■□□□□";
+                    break;
+                case 2:
+                    selectedBar = "■■□□□";
+                    break;
+                case 3:
+                    selectedBar = "■■■□□";
+                    break;
+                case 4:
+                    selectedBar = "■■■■□";
+                    break;
+                case 5:
+                    selectedBar = "■■■■■";
+                    break;
+                default:
+                    selectedBar = "□□□□□";
+            }
+            return selectedBar;
+        }
+
+        function makeAeList() {
             $scope.shareData.aeList = $scope.shareData.elements.map(function (element) {
                 return element.id + ": " + element.term + "\n" + element.items.map(function (item, j, self) {
                     if (j > 0 ? element.items[0].selected > 0 : true) {
-                        return " " + item.title + item.ans.filter(function (a, i) {
+                        var memo = [false, false];
+                        if (item.title === "頻度: ") { //, 程度, 生活の妨げ
+                            severe(item, "yellow") ? memo[0] = true : memo[0] = false;
+                            severe(item, "red") ? memo[1] = true : memo[1] = false;
+                        }
+                        if (item.title === "程度: ") { //, 程度, 生活の妨げ
+                            severe(item, "yellow") ? memo[0] = true : memo[0] = false;
+                            severe(item, "red") ? memo[1] = true : memo[1] = false;
+                        }
+                        if (item.title === "生活の妨げ: ") { //, 程度, 生活の妨げ
+                            severe(item, "yellow") ? memo[0] = true : memo[0] = false;
+                            severe(item, "red") ? memo[1] = true : memo[1] = false;
+                        }
+                        if (item.title === "有無: ") { //, 程度, 生活の妨げ
+                            if (item.selected === 0) {
+                                yn = 1;
+                            } else if (item.selected === 1) {
+                                yn = 0;
+                            }
+                            severe(item, "yellow") ? memo[0] = true : memo[0] = false;
+                            severe(item, "red") ? memo[1] = true : memo[1] = false;
+                        }
+                        return (memo[0] ? "★　" : memo[1] ? "★★" : "　　") + item.title + item.ans.filter(function (a, i) {
                             return item.selected === i;
                         })[0] + "\n";
                     }
                 });
-            }).join("\n").replace(",", "");
-
+            }).join("\n").replace(/\,/g, "");
+        }
+        $scope.$on('$ionicView.beforeEnter', function (e) {
+            load();
         });
+
+        $scope.gradeChange = function (ctcae, selected) {
+            if (ctcae["selectedNew"] === selected) {
+                ctcae["selectedNew"] = undefined;
+            } else {
+                ctcae["selectedNew"] = selected;
+            }
+            console.log(ctcae["selectedNew"], selected);
+            var ctcaeList = "";
+            makeAeList();
+            $scope.ctcaes.forEach(function (ele) {
+                ctcaeList = ctcaeList + "\n" + bar(ele.selectedNew ? ele.selectedNew : ele.selected) + "  " + ele.ja + (ele.selected !== undefined ? ": Grade " + ele.selected + (ele.selectedNew !== undefined ? " → " + ele.selectedNew : "") : ": undefined" + (ele.selectedNew !== undefined ? " → " + ele.selectedNew : ""));
+            });
+            $scope.shareData.aeList = "|||||　PRO-CTCAE |||||\n\n" + $scope.shareData.aeList + "\n|||||　CTCAE　|||||\nGrade 自動変換値 (→ 入力値値)\n" + ctcaeList;
+        }
 
 
         $scope.shareData.fileNameChanged = function (event) {

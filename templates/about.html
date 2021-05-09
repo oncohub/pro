@@ -4,6 +4,61 @@
     </ion-header-bar>
     <div style="padding:5px; overflow: scroll; height:100%;" id="ps">
         <div style="margin-top:60px;"></div>
+        <div ng-repeat="ctcae in ctcaes" class="card">
+            <div class="card-header" ng-bind-html="shareData.encode(ctcae.ctcae, 'termja') | highlight:shareData.search">
+            </div>
+            <div class="expandable-content">
+                <div class="grades">
+                    <div class="row">
+                        <div class="col"
+                            ng-class="{'item-selected': (ctcae.selected === 0), 'item-selectedNew': (ctcae.selectedNew === 0)}"
+                            ng-click="gradeChange(ctcae, 0)">
+                            <div class="grade-header">Grade 0</div>
+                            <div class="grade-content" ng-bind-html="'症状なし'">
+                            </div>
+                        </div>
+                        <div class="col"
+                            ng-class="{'item-selected': (ctcae.selected === 1), 'item-selectedNew': (ctcae.selectedNew === 1)}"
+                            ng-click="gradeChange(ctcae, 1)">
+                            <div class="grade-header">Grade 1</div>
+                            <div class="grade-content"
+                                ng-bind-html="shareData.encode(ctcae.ctcae, 'g1ja')| highlight:shareData.search">
+                            </div>
+                        </div>
+                        <div class="col"
+                            ng-class="{'item-selected': (ctcae.selected === 2), 'item-selectedNew': (ctcae.selectedNew === 2)}"
+                            ng-click="gradeChange(ctcae, 2)">
+                            <div class="grade-header">Grade 2</div>
+                            <div class="grade-content"
+                                ng-bind-html="shareData.encode(ctcae.ctcae, 'g2ja') | highlight:shareData.search">
+                            </div>
+                        </div>
+                        <div class="col"
+                            ng-class="{'item-selected': (ctcae.selected === 3), 'item-selectedNew': (ctcae.selectedNew === 3)}"
+                            ng-click="gradeChange(ctcae, 3)">
+                            <div class="grade-header">Grade 3</div>
+                            <div class="grade-content"
+                                ng-bind-html="shareData.encode(ctcae.ctcae, 'g3ja') | highlight:shareData.search">
+                            </div>
+                        </div>
+                        <div class="col" ng-class="{'item-selectedNew': (ctcae.selectedNew === 4)}"
+                            ng-click="gradeChange(ctcae, 4)">
+                            <div class="grade-header">Grade 4</div>
+                            <div class="grade-content"
+                                ng-bind-html="shareData.encode(ctcae.ctcae, 'g4ja') | highlight:shareData.search">
+                            </div>
+                        </div>
+                        <div class="col" ng-class="{'item-selectedNew': (ctcae.selectedNew === 5)}"
+                            ng-click="gradeChange(ctcae, 5)">
+                            <div class="grade-header">Grade 5</div>
+                            <div class="grade-content"
+                                ng-bind-html="shareData.encode(ctcae.ctcae, 'g5ja') | highlight:shareData.search">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!--
         <div style="padding: 0; " class="col-12">
             <div class="list-group-item selectable" ng-repeat="element in shareData.elements" ng-if="shareData.element(element)">

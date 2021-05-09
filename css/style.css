@@ -129,12 +129,14 @@ div.header.button-bar a.button {
     border: #ddd
 }
 
+/*
 #ps .row .col:first-child,
 .header .col {
     background: #699cf0;
     color: #fff;
     font-size: 1.1em
 }
+*/
 
 div.header.button-bar a.button.selected {
     border-bottom: 2px solid #84b0fb;
@@ -348,6 +350,12 @@ div.header.button-bar a.button.selected {
 
     overflow: scroll;
 }
+.item-selected {
+    background: rgb(224, 252, 183);
+}
+.item-selectedNew {
+    background: rgb(252, 221, 183);
+}
 
 /*
 .draglist-right {
@@ -361,7 +369,7 @@ div.header.button-bar a.button.selected {
 .row {
     margin-right: 0 !important;
     margin-left: 0 !important;
-    margin-top: 40px !important;
+   /* margin-top: 40px !important; */
 }
 
 .draglist-right .item-collapse {
