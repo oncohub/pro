@@ -100,7 +100,7 @@ ion-side-menu .item {
 }
 
 .col {
-    min-width: 116px;
+    min-width: 100px;
     border: solid 1px #ddd;
     border-right-style: none
 }
@@ -110,6 +110,9 @@ ion-side-menu .item {
 }
 .col.input-group-prepend{
     border:none;
+}
+#ps .scroll {
+    padding-bottom: 80px;
 }
 
 #ps .col {

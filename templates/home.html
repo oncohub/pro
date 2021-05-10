@@ -11,7 +11,7 @@
 
         <div class="list-group" ng-class="{'col-9' : toggleStatus, 'col-12': !toggleStatus}"
             ng-style="{'height': (height('ref') + 35) + 'px'}">
-            <ion-content style="top:40px; bottom:0;" overflow-scroll="true" delegate-handle="mainScroll">
+            <ion-content style="top:40px; bottom:0;" overflow-scroll="false" delegate-handle="mainScroll">
                 <div id="list1" class="draglist-left" ng-sortable="sortableConf">
                     <div class="card" ng-repeat="element in shareData.elements" 　id="element.id">
                         <div class="card-header my-handle item item-icon-right">
@@ -42,7 +42,7 @@
         </div>
         <!-- score box > dictation > dnd list -->
 
-            <ion-content style="top:40px;" overflow-scroll="true" ng-class="{'col-3' : toggleStatus, 'col-12': !toggleStatus}">
+            <ion-content style="top:40px;" overflow-scroll="false" ng-class="{'col-3' : toggleStatus, 'col-12': !toggleStatus}">
                 <div class="list-group" 
                 ng-style="{'height': (height('ref') + 35) + 'px'}">
             <input style="width: auto; margin: 10px 10px 10px 10px; border-radius:20px; padding: 4px 8px; "
