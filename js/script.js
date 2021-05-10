@@ -735,7 +735,7 @@ angular.module('app', ['ionic', 'jett.ionic.filter.bar', 'ui.router', 'ng-sortab
             });
             var ctcaeList = "";
             $scope.ctcaes.forEach(function (ele) {
-                ctcaeList = ctcaeList + "\n" + bar(ele.selected) + "  " + ele.ja + (ele.selected !== undefined ? ": Grade " + ele.selected : ": undefined");
+                ctcaeList = ctcaeList + "\n" + bar(ele.selected) + "  " + ele.ja + (ele.selected !== undefined ? ": Grade " + ele.selected : ": Grade undefined");
             });
             $scope.shareData.aeList = "|||||　PRO-CTCAE |||||\n\n" + $scope.shareData.aeList + "\n|||||　CTCAE　|||||\nGrade 自動変換値 (→ 入力値)\n" + ctcaeList;
         }
@@ -811,7 +811,7 @@ angular.module('app', ['ionic', 'jett.ionic.filter.bar', 'ui.router', 'ng-sortab
             var ctcaeList = "";
             makeAeList();
             $scope.ctcaes.forEach(function (ele) {
-                ctcaeList = ctcaeList + "\n" + bar(ele.selectedNew ? ele.selectedNew : ele.selected) + "  " + ele.ja + (ele.selected !== undefined ? ": Grade " + ele.selected + (ele.selectedNew !== undefined ? " → " + ele.selectedNew : "") : ": undefined" + (ele.selectedNew !== undefined ? " → " + ele.selectedNew : ""));
+                ctcaeList = ctcaeList + "\n" + bar(ele.selectedNew ? ele.selectedNew : ele.selected) + "  " + ele.ja + (ele.selected !== undefined ? ": Grade " + ele.selected + (ele.selectedNew !== undefined ? " → " + ele.selectedNew : "") : ": Grade undefined" + (ele.selectedNew !== undefined ? " → " + ele.selectedNew : ""));
             });
             $scope.shareData.aeList = "|||||　PRO-CTCAE |||||\n\n" + $scope.shareData.aeList + "\n|||||　CTCAE　|||||\nGrade 自動変換値 (→ 入力値値)\n" + ctcaeList;
         }
