@@ -1,5 +1,5 @@
-angular.module('app', ['ionic', 'jett.ionic.filter.bar', 'ui.router', 'ng-sortable', 'barcode', 'angular-barcode'])
-    .controller('HomeCtrl', ["$scope", "$timeout", "$state", "$window", "sharedService", "$ionicScrollDelegate", "$ionicFilterBar", "$ionicSideMenuDelegate", "$ionicLoading", "$ionicPopup", function ($scope, $timeout, $state, $window, sharedService, $ionicScrollDelegate, $ionicFilterBar, $ionicSideMenuDelegate, $ionicLoading, $ionicPopup) {
+angular.module('app', ['ionic', 'jett.ionic.filter.bar', 'ui.router', 'ng-sortable', 'barcode', 'angular-barcode', 'ion-smooth-scroll'])
+    .controller('HomeCtrl', ["$scope", "$timeout", "$state", "$window", "sharedService", "$ionicScrollDelegate", "$ionicFilterBar", "$ionicSideMenuDelegate", "$ionicLoading", "$ionicPopup", "$location", function ($scope, $timeout, $state, $window, sharedService, $ionicScrollDelegate, $ionicFilterBar, $ionicSideMenuDelegate, $ionicLoading, $ionicPopup, $location) {
         $scope.shareData = sharedService;
 
         $scope.sortableConf = {
@@ -49,6 +49,9 @@ angular.module('app', ['ionic', 'jett.ionic.filter.bar', 'ui.router', 'ng-sortab
                 return ele.id !== id;
             })
             $scope.shareData.elements2.unshift(ele);
+            $timeout(function () {
+                $ionicScrollDelegate.$getByHandle('menuScroll').scrollTop(true);
+            });
         }
         $scope.moveItemTwoToOne = function (id) {
             var ele = proctcae.filter(function (val) {
@@ -59,8 +62,9 @@ angular.module('app', ['ionic', 'jett.ionic.filter.bar', 'ui.router', 'ng-sortab
             })
             $scope.shareData.elements.unshift(ele);
             $timeout(function () {
-                $ionicScrollDelegate.$getByHandle('mainScroll').scrollTop(false);
-            }, 300);
+                $ionicScrollDelegate.$getByHandle('mainScroll').scrollTop(true);
+                $ionicScrollDelegate.$getByHandle('menuScroll').scrollTop(true);
+            });
         }
 
 
@@ -128,6 +132,8 @@ angular.module('app', ['ionic', 'jett.ionic.filter.bar', 'ui.router', 'ng-sortab
         $scope.setGrade = function (element, i, item, j) {
             item.selected = j;
             console.log(element);
+            $location.hash(element.id);
+            $ionicScrollDelegate.anchorScroll(true);
             if (element.items[0].selected === 0) {
                 element.items.forEach(function (e, u) {
                     if (u > 0) {

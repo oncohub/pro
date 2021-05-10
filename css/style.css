@@ -105,6 +105,10 @@ ion-side-menu .item {
     border-right-style: none
 }
 
+.col-0 {
+    display: none !important;
+}
+
 .col:last-child {
     border-right: solid 1px #ddd
 }

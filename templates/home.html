@@ -6,14 +6,12 @@
             <div class="button button-icon ion-navicon" ng-click="toggleStatus = !toggleStatus"></div>
         </div>
     </ion-header-bar>
-    <ion-content style="width: 100px;" has-footer id="ref"></ion-content>
-    <div id="shared-lists" class="row">
-
-        <div class="list-group" ng-class="{'col-9' : toggleStatus, 'col-12': !toggleStatus}"
-            ng-style="{'height': (height('ref') + 35) + 'px'}">
-            <ion-content style="top:40px; bottom:0;" overflow-scroll="false" delegate-handle="mainScroll">
-                <div id="list1" class="draglist-left" ng-sortable="sortableConf">
-                    <div class="card" ng-repeat="element in shareData.elements" 　id="element.id">
+    <ion-content id="shared-lists" overflow-scroll="true" >
+        <div class="row" style="height:100%;">
+            <ion-scroll delegate-handle="mainScroll" id="list1" direction="y" ng-class="{'col-9' : toggleStatus, 'col-12': !toggleStatus}"
+                class="list-group" style="height:100%;">
+                <div style="padding-bottom:20px;">
+                    <div class="card" ng-repeat="element in shareData.elements" 　id={{element.id}}>
                         <div class="card-header my-handle item item-icon-right">
                             <span>{{element.term}}</span><a ng-click="moveItemOneToTwo(element.id)"> <i
                                     class="icon ion-ios-trash-outline"></i></a>
@@ -35,20 +33,18 @@
                                     </label>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
-            </ion-content>
-        </div>
-        <!-- score box > dictation > dnd list -->
+            </ion-scroll>
+            <!-- score box > dictation > dnd list -->
 
-            <ion-content style="top:40px;" overflow-scroll="false" ng-class="{'col-3' : toggleStatus, 'col-12': !toggleStatus}">
-                <div class="list-group" 
-                ng-style="{'height': (height('ref') + 35) + 'px'}">
-            <input style="width: auto; margin: 10px 10px 10px 10px; border-radius:20px; padding: 4px 8px; "
-                ng-change="changed(searchText)" ng-model="searchText" placeholder="Search...">
-            
-                <div id="list2" class="draglist-right" style="margin-bottom:30px; padding-bottom:20px;" ng-sortable="sortableConf">
+            <ion-scroll delegate-handle="menuScroll" id="list2" direction="y" ng-class="{'col-3' : toggleStatus, 'col-0': !toggleStatus}"
+                class="list-group" style="height:100%;">
+                <div style="padding-bottom:20px;">
+                    <input style="width: auto; margin: 10px 10px 10px 10px; border-radius:20px; padding: 4px 8px;"
+                        ng-change="changed(searchText)" ng-model="searchText" placeholder="Search...">
                     <div class="list-group-item card " ng-repeat="element in shareData.elements2 | filter:searchText"
                         id={{element.id}}>
                         <div class="item item-icon-left">
@@ -58,8 +54,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            </ion-content>
-
-    </div>
+            </ion-scroll>
+        </div>
+    </ion-content>
 </div>
