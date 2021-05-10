@@ -99,6 +99,10 @@ ion-side-menu .item {
     padding: 12px 20px
 }
 
+.item-icon-left {
+    padding-left: 54px !important;
+    }
+
 .col {
     min-width: 100px;
     border: solid 1px #ddd;

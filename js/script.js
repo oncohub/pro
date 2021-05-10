@@ -1,7 +1,7 @@
 angular.module('app', ['ionic', 'jett.ionic.filter.bar', 'ui.router', 'ng-sortable', 'barcode', 'angular-barcode', 'ion-smooth-scroll'])
     .controller('HomeCtrl', ["$scope", "$timeout", "$state", "$window", "sharedService", "$ionicScrollDelegate", "$ionicFilterBar", "$ionicSideMenuDelegate", "$ionicLoading", "$ionicPopup", "$location", function ($scope, $timeout, $state, $window, sharedService, $ionicScrollDelegate, $ionicFilterBar, $ionicSideMenuDelegate, $ionicLoading, $ionicPopup, $location) {
         $scope.shareData = sharedService;
-        $ionicScrollDelegate.$getByHandle('coverScroll').freezeScroll(true);
+        //$ionicScrollDelegate.$getByHandle('coverScroll').freezeScroll(true);
         $scope.sortableConf = {
             animation: 400,
             delay: 100,
@@ -66,6 +66,10 @@ angular.module('app', ['ionic', 'jett.ionic.filter.bar', 'ui.router', 'ng-sortab
                 $ionicScrollDelegate.$getByHandle('menuScroll').scrollTop(true);
             });
         }
+        $scope.toggleRight = function () {
+            $ionicScrollDelegate.scrollTop(false);
+            $ionicSideMenuDelegate.toggleRight();
+        };
 
 
         var el1 = document.getElementById('list1');
@@ -132,8 +136,8 @@ angular.module('app', ['ionic', 'jett.ionic.filter.bar', 'ui.router', 'ng-sortab
         $scope.setGrade = function (element, i, item, j) {
             item.selected = j;
             console.log(element);
-            $location.hash(element.id);
-            $ionicScrollDelegate.anchorScroll(true);
+            $location.hash('card' + element.id);
+            $ionicScrollDelegate.$getByHandle('mainScroll').anchorScroll(true);
             if (element.items[0].selected === 0) {
                 element.items.forEach(function (e, u) {
                     if (u > 0) {
