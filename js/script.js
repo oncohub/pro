@@ -1,7 +1,7 @@
 angular.module('app', ['ionic', 'jett.ionic.filter.bar', 'ui.router', 'ng-sortable', 'barcode', 'angular-barcode', 'ion-smooth-scroll'])
     .controller('HomeCtrl', ["$scope", "$timeout", "$state", "$window", "sharedService", "$ionicScrollDelegate", "$ionicFilterBar", "$ionicSideMenuDelegate", "$ionicLoading", "$ionicPopup", "$location", function ($scope, $timeout, $state, $window, sharedService, $ionicScrollDelegate, $ionicFilterBar, $ionicSideMenuDelegate, $ionicLoading, $ionicPopup, $location) {
         $scope.shareData = sharedService;
-
+        $ionicScrollDelegate.$getByHandle('coverScroll').freezeScroll(true);
         $scope.sortableConf = {
             animation: 400,
             delay: 100,

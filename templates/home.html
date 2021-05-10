@@ -6,10 +6,10 @@
             <div class="button button-icon ion-navicon" ng-click="toggleStatus = !toggleStatus"></div>
         </div>
     </ion-header-bar>
-    <ion-content id="shared-lists" overflow-scroll="true" >
+    <ion-content delegate-handle="coverScroll" id="shared-lists" overflow-scroll="true" >
         <div class="row" style="height:100%;">
             <ion-scroll delegate-handle="mainScroll" id="list1" direction="y" ng-class="{'col-9' : toggleStatus, 'col-12': !toggleStatus}"
-                class="list-group" style="height:100%;">
+                class="list-group" style="height:100%; ">
                 <div style="padding-bottom:20px;">
                     <div class="card" ng-repeat="element in shareData.elements" 　id={{element.id}}>
                         <div class="card-header my-handle item item-icon-right">
