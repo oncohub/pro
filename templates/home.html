@@ -4,7 +4,7 @@
         </h1>
         <div class="button button-icon ion-navicon" ng-click="toggleRight()"></div>
     </ion-header-bar>
-    <ion-side-menus >
+    <ion-side-menus>
         <ion-side-menu-content>
             <ion-content overflow-scroll="false" delegate-handle="mainScroll" id="list1" direction="y" class="list-group" >
                 <div class="card" ng-repeat="element in shareData.elements" 　id="card{{element.id}}">
@@ -36,11 +36,12 @@
 
             </ion-content>
         </ion-side-menu-content>
-        <ion-side-menu side="right" expose-aside-when="large">
-            <ion-content overflow-scroll="false" delegate-handle="menuScroll" id="list2" direction="y"
+        <ion-side-menu side="right" >
+            <ion-content has-subheader=“true” overflow-scroll="false" delegate-handle="menuScroll" id="list2" direction="y"
                 class="list-group">
-                <input style="width: auto; margin: 10px 10px 10px 10px; border-radius:20px; padding: 4px 8px;"
+                 <input style="width: auto; margin: 10px 10px 10px 10px; border-radius:20px; padding: 4px 8px;"
                     ng-change="changed(searchText)" ng-model="searchText" placeholder="Search...">
+
                 <div class="list-group-item card " ng-repeat="element in shareData.elements2 | filter:searchText"
                     id={{element.id}}>
                     <div class="item item-icon-left">
